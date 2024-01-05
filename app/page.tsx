@@ -6,18 +6,23 @@ import imgBlueMessage from "@/public/img/blue-message.svg";
 import imgOrangeBook from "@/public/img/orange-book.svg";
 import usePopupStore from "./store/popup";
 import WhiteBtn from "./components/index/WhiteBtn";
+import ContentPopup from "./components/index/ContentPopup";
 
 const Page = () => {
   const { sPopup, setSPopup } = usePopupStore((state) => state);
 
   return (
-    <div className="fixed bottom-[27px] right-[34px] box-equal gap-x-[26px]">
-      {/* if inbox btn is clicked */}
+    <div className="fixed bottom-[27px] right-[34px] flex">
+      {/* popup / white btn content */}
+      <ContentPopup />
+
+      {/* white btns */}
       <div
         className={`box-equal gap-x-[26px] fixed ${
           sPopup === "" ? "right-0" : "right-32"
         }`}
       >
+        {/* if inbox btn is clicked */}
         {["All", "Inbox"].includes(sPopup) ? (
           <WhiteBtn
             sText="Inbox"
@@ -50,7 +55,7 @@ const Page = () => {
 
       {/* gray bg */}
       <div
-        className={`absolute w-[68px] h-[68px] rounded-full bg-[#4F4F4F] ${
+        className={`absolute w-[68px] h-[68px] rounded-full bg-gray3 ${
           ["Inbox", "Task"].includes(sPopup) ? "!right-[15px]" : "right-0"
         }`}
       />
