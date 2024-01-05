@@ -2,7 +2,15 @@ import Image from "next/image";
 import imgPerson from "@/public/img/person.svg";
 import imgPerson2 from "@/public/img/white-person.svg";
 
-const Message = () => {
+export interface IMessage {
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+  phone: string;
+}
+
+const Message = ({ oMessage }: { oMessage: IMessage }) => {
   return (
     <div className="border-b-2 border-gray1 last:border-b-0 pt-5 pb-8 flex justify-between">
       <div className="flex pr-12">
@@ -18,18 +26,20 @@ const Message = () => {
 
         {/* texts */}
         <div>
-          <p className="font-bold text-blue1">asd</p>
-          <p className="text-sm text-gray3 font-bold">asd</p>
-          <p className="text-sm text-gray3">asd</p>
+          <p className="font-bold text-blue1">{oMessage.name}</p>
+          <p className="text-sm text-gray3 font-bold">{oMessage.username}</p>
+          <p className="text-sm text-gray3">{oMessage.email}</p>
         </div>
       </div>
 
       {/* date & red dot */}
       <div className="flex flex-col justify-between items-end">
-        <p className="text-sm text-gray3">asd</p>
+        <p className="text-sm text-gray3">{oMessage.phone}</p>
 
         {/* red dot */}
-        <div className="w-2.5 h-2.5 rounded-full bg-red1" />
+        {oMessage.id > 1 ? null : (
+          <div className="w-2.5 h-2.5 rounded-full bg-red1" />
+        )}
       </div>
     </div>
   );
