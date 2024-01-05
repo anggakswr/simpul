@@ -18,8 +18,8 @@ const Page = () => {
 
       {/* white btns */}
       <div
-        className={`box-equal gap-x-[26px] fixed ${
-          sPopup === "" ? "right-0" : "right-32"
+        className={`h-[68px] box-equal gap-x-[26px] fixed ${
+          sPopup === "" ? "right-0 opacity-0" : "right-32"
         }`}
       >
         {/* if inbox btn is clicked */}

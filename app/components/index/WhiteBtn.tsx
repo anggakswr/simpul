@@ -7,14 +7,17 @@ interface IWhiteBtnProp {
 }
 
 const WhiteBtn = ({ sText, rnIcon }: IWhiteBtnProp) => {
-  const { setSPopup } = usePopupStore((state) => state);
+  const { sPopup, setSPopup } = usePopupStore((state) => state);
 
   return (
     <button
       className="w-[60px] h-[60px] rounded-full bg-white box-center relative"
       onClick={() => setSPopup(sText)}
     >
-      <p className="absolute -top-8 text-white text-sm font-bold">{sText}</p>
+      {sPopup === "All" ? (
+        <p className="absolute -top-8 text-white text-sm font-bold">{sText}</p>
+      ) : null}
+
       {rnIcon}
     </button>
   );
