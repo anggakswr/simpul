@@ -13,35 +13,26 @@ const Page = () => {
   return (
     <div className="fixed bottom-[27px] right-[34px] box-equal gap-x-[26px]">
       {/* if inbox btn is clicked */}
-      {sPopup === "Inbox" ? (
-        <WhiteBtn
-          sText="Inbox"
-          rnIcon={<Image src={imgBlueMessage} alt="Blue Message" />}
-        />
-      ) : null}
-
-      {/* if task btn is clicked */}
-      {sPopup === "Task" ? (
-        <WhiteBtn
-          sText="Task"
-          rnIcon={<Image src={imgOrangeBook} alt="Orange Book" />}
-        />
-      ) : null}
-
-      {/* if blue btn is clicked */}
-      {sPopup === "All" ? (
-        <>
-          <WhiteBtn
-            sText="Task"
-            rnIcon={<Image src={imgOrangeBook} alt="Orange Book" />}
-          />
-
+      <div
+        className={`box-equal gap-x-[26px] fixed ${
+          sPopup === "" ? "right-0" : "right-32"
+        }`}
+      >
+        {["All", "Inbox"].includes(sPopup) ? (
           <WhiteBtn
             sText="Inbox"
             rnIcon={<Image src={imgBlueMessage} alt="Blue Message" />}
           />
-        </>
-      ) : null}
+        ) : null}
+
+        {/* if task btn is clicked */}
+        {["All", "Task"].includes(sPopup) ? (
+          <WhiteBtn
+            sText="Task"
+            rnIcon={<Image src={imgOrangeBook} alt="Orange Book" />}
+          />
+        ) : null}
+      </div>
 
       {/* default blue btn */}
       <button
@@ -58,9 +49,11 @@ const Page = () => {
       </button>
 
       {/* gray bg */}
-      {["Inbox", "Task"].includes(sPopup) ? (
-        <div className="absolute w-[68px] h-[68px] rounded-full bg-[#4F4F4F] !right-[15px]" />
-      ) : null}
+      <div
+        className={`absolute w-[68px] h-[68px] rounded-full bg-[#4F4F4F] ${
+          ["Inbox", "Task"].includes(sPopup) ? "!right-[15px]" : "right-0"
+        }`}
+      />
     </div>
   );
 };
