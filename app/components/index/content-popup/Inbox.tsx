@@ -13,10 +13,6 @@ const Inbox = () => {
   const { id } = useMessageStore((state) => state);
   const sTransition = id ? "left-[100%]" : "";
 
-  // if (id) {
-  //   return null;
-  // }
-
   return (
     <div
       className={`absolute inset-0 overflow-y-scroll bg-white ${sTransition}`}
@@ -55,7 +51,7 @@ const Inbox = () => {
         {!aMessages.length ? <p>No data</p> : null}
 
         {aMessages.map((oMessage: IMessage) => (
-          <Message oMessage={oMessage} />
+          <Message key={`msg-${oMessage.id}`} oMessage={oMessage} />
         ))}
       </div>
     </div>

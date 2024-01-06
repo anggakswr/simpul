@@ -1,17 +1,24 @@
 import Image from "next/image";
 import imgDots from "@/public/img/inbox-detail/more.svg";
 
-interface IChatBoxProps {
-  sType: "RIGHT" | "LEFT";
+export interface IChat {
+  id: number;
+  email: string;
+  body: string;
 }
 
-const ChatBox = ({ sType }: IChatBoxProps) => {
+interface IChatBoxProps {
+  sType: "RIGHT" | "LEFT";
+  oChat: IChat;
+}
+
+const ChatBox = ({ sType, oChat }: IChatBoxProps) => {
   const bRight = sType === "RIGHT";
   const sReverse = bRight ? "" : "flex-row-reverse";
   const sBg = bRight ? "bg-[#EEDCFF]" : "bg-[#FCEED3]";
 
   return (
-    <div>
+    <div className="mb-2.5 last:mb-0">
       <div className={`w-2/3 ${bRight ? "ml-auto" : "mr-auto"}`}>
         {/* sender */}
         {bRight ? (
@@ -19,7 +26,9 @@ const ChatBox = ({ sType }: IChatBoxProps) => {
             You
           </p>
         ) : (
-          <p className="font-bold text-[#E5A443] text-sm mb-1.5">asd</p>
+          <p className="font-bold text-[#E5A443] text-sm mb-1.5">
+            {oChat.email}
+          </p>
         )}
 
         <div className={`flex ${sReverse} items-start gap-x-[5px]`}>
@@ -30,10 +39,7 @@ const ChatBox = ({ sType }: IChatBoxProps) => {
 
           {/* texts */}
           <div className={`${sBg} text-xs text-gray3 rounded-[5px] p-2.5`}>
-            <p className="break-words mb-3">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro
-              iure ipsa, maiores dignissimos laudantium vitae?
-            </p>
+            <p className="break-words mb-3">{oChat.body}</p>
 
             <p>19:32</p>
           </div>
