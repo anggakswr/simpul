@@ -1,6 +1,7 @@
 import Image from "next/image";
 import imgPerson from "@/public/img/person.svg";
 import imgPerson2 from "@/public/img/white-person.svg";
+import useMessageStore from "@/app/store/message";
 
 export interface IMessage {
   id: number;
@@ -11,8 +12,13 @@ export interface IMessage {
 }
 
 const Message = ({ oMessage }: { oMessage: IMessage }) => {
+  const { setId } = useMessageStore((state) => state);
+
   return (
-    <div className="border-b-2 border-gray1 last:border-b-0 pt-5 pb-8 flex justify-between">
+    <div
+      className="cursor-pointer border-b-2 border-gray1 last:border-b-0 pt-5 pb-8 flex justify-between"
+      onClick={() => setId(oMessage.id)}
+    >
       <div className="flex pr-12">
         {/* gray circle */}
         <div className="w-[34px] h-[34px] bg-[#E0E0E0] rounded-full box-center">
