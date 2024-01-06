@@ -17,15 +17,8 @@ const InboxDetail = () => {
 
       {/* body */}
       <div className="p-5 !pt-[86px]">
-        {/* right box */}
         <ChatBox sType="RIGHT" />
-
-        {/* left box */}
-        <div>
-          <div className="mr-auto w-2/3">
-            <p className="font-bold text-[#9B51E0] text-sm">You</p>
-          </div>
-        </div>
+        <ChatBox sType="LEFT" />
       </div>
     </div>
   );

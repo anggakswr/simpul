@@ -11,13 +11,16 @@ const Inbox = () => {
 
   // global state
   const { id } = useMessageStore((state) => state);
+  const sTransition = id ? "left-[100%]" : "";
 
-  if (id) {
-    return null;
-  }
+  // if (id) {
+  //   return null;
+  // }
 
   return (
-    <div>
+    <div
+      className={`absolute inset-0 overflow-y-scroll bg-white ${sTransition}`}
+    >
       {/* search input */}
       <div className="fixed z-10 right-[34px] w-2/5 bg-white rounded py-5 px-[29px]">
         <div className="relative">

@@ -6,22 +6,30 @@ interface IChatBoxProps {
 }
 
 const ChatBox = ({ sType }: IChatBoxProps) => {
+  const bRight = sType === "RIGHT";
+  const sReverse = bRight ? "" : "flex-row-reverse";
+  const sBg = bRight ? "bg-[#EEDCFF]" : "bg-[#FCEED3]";
+
   return (
     <div>
-      <div className="ml-auto w-2/3">
+      <div className={`w-2/3 ${bRight ? "ml-auto" : "mr-auto"}`}>
         {/* sender */}
-        <p className="font-bold text-[#9B51E0] text-sm text-right mb-1.5">
-          You
-        </p>
+        {bRight ? (
+          <p className="font-bold text-[#9B51E0] text-sm text-right mb-1.5">
+            You
+          </p>
+        ) : (
+          <p className="font-bold text-[#E5A443] text-sm mb-1.5">asd</p>
+        )}
 
-        <div className="flex items-start gap-x-[5px]">
+        <div className={`flex ${sReverse} items-start gap-x-[5px]`}>
           {/* dots */}
           <button className="w-4 min-w-4">
             <Image src={imgDots} alt="Options" />
           </button>
 
           {/* texts */}
-          <div className="bg-[#EEDCFF] text-xs text-gray3 rounded-[5px] p-2.5">
+          <div className={`${sBg} text-xs text-gray3 rounded-[5px] p-2.5`}>
             <p className="break-words mb-3">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro
               iure ipsa, maiores dignissimos laudantium vitae?

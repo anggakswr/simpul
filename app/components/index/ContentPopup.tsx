@@ -7,7 +7,7 @@ const ContentPopup = () => {
   const { sPopup } = usePopupStore((state) => state);
 
   const sDefaultCSS =
-    "overflow-x-hidden overflow-y-scroll fixed right-[34px] bg-white rounded h-3/4 w-2/5";
+    "overflow-x-hidden fixed right-[34px] bg-white rounded h-3/4 w-2/5";
 
   const sPosition = ["Inbox", "Task"].includes(sPopup)
     ? "bottom-[110px]"
