@@ -8,7 +8,7 @@ const GlobalLoading = () => {
   }
 
   return (
-    <div className="absolute z-10 inset-x-0 box-center h-full pointer-events-none">
+    <div className="absolute z-10 inset-x-0 box-center h-full pointer-events-none bg-white">
       <div className="box-center flex-col gap-4">
         {/* circle */}
         <div className="animate-spin w-20 h-20 border-[10px] border-[#F8F8F8] border-t-[#C4C4C4] border-l-[#C4C4C4] rounded-full"></div>

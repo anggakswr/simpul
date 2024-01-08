@@ -16,9 +16,9 @@ const onRequest = (
   return req;
 };
 
-const onResponse = (req: AxiosResponse<any, any>): AxiosResponse<any, any> => {
+const onResponse = (res: AxiosResponse<any, any>): AxiosResponse<any, any> => {
   setBLoading(false);
-  return req;
+  return res;
 };
 
 axios1.interceptors.request.use(onRequest);
