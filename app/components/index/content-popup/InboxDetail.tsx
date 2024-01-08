@@ -17,13 +17,13 @@ const InboxDetail = () => {
   const { id } = useMessageStore((state) => state);
   const { chats, setChats } = useChatStore((state) => state);
 
-  if (!id) {
-    return null;
-  }
-
   useEffect(() => {
     setChats([]);
   }, [id]);
+
+  if (!id) {
+    return null;
+  }
 
   return (
     <div>
