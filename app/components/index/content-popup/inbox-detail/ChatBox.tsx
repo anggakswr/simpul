@@ -5,6 +5,7 @@ export interface IChat {
   id: number;
   email: string;
   body: string;
+  sTime?: string;
 }
 
 interface IChatBoxProps {
@@ -14,7 +15,7 @@ interface IChatBoxProps {
 
 const ChatBox = ({ sType, oChat }: IChatBoxProps) => {
   const bRight = sType === "RIGHT";
-  const sReverse = bRight ? "" : "flex-row-reverse";
+  const sReverse = bRight ? "justify-end" : "flex-row-reverse justify-start";
   const sBg = bRight ? "bg-[#EEDCFF]" : "bg-[#FCEED3]";
 
   return (
@@ -41,7 +42,7 @@ const ChatBox = ({ sType, oChat }: IChatBoxProps) => {
           <div className={`${sBg} text-xs text-gray3 rounded-[5px] p-2.5`}>
             <p className="break-words mb-3">{oChat.body}</p>
 
-            <p>19:32</p>
+            <p>{oChat.sTime ?? "19:32"}</p>
           </div>
         </div>
       </div>

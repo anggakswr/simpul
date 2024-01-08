@@ -5,6 +5,8 @@ import getInboxDetails from "@/app/query/getInboxDetails";
 import TodayLine from "./inbox-detail/TodayLine";
 import NewMessageLine from "./inbox-detail/NewMessageLine";
 import ChatInput from "./inbox-detail/ChatInput";
+import useChatStore from "@/app/store/chat";
+import { useEffect } from "react";
 
 const InboxDetail = () => {
   // fetcher
@@ -13,15 +15,18 @@ const InboxDetail = () => {
 
   // global state
   const { id } = useMessageStore((state) => state);
+  const { chats, setChats } = useChatStore((state) => state);
 
   if (!id) {
     return null;
   }
 
+  useEffect(() => {
+    setChats([]);
+  }, [id]);
+
   return (
     <div>
-      {/* loading was here */}
-
       {/* header */}
       <CustomHeader />
 
@@ -49,6 +54,20 @@ const InboxDetail = () => {
 
           {/* render last chat */}
           <ChatBox sType="LEFT" oChat={aChats[aChats.length - 1]} />
+
+          {/* render my chats */}
+          {chats.map((oChat) => (
+            <ChatBox
+              key={`my-chat-${oChat.id}`}
+              sType="RIGHT"
+              oChat={{
+                id: oChat.id,
+                body: oChat.sMessage,
+                email: "You",
+                sTime: oChat.sTime,
+              }}
+            />
+          ))}
         </div>
       ) : null}
 

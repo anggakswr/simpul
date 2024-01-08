@@ -1,5 +1,7 @@
 import axios1 from "@/app/helpers/axios1";
+import useChatStore from "@/app/store/chat";
 import useMessageStore from "@/app/store/message";
+import dayjs from "dayjs";
 import { useState } from "react";
 
 const ChatInput = () => {
@@ -8,10 +10,16 @@ const ChatInput = () => {
 
   // global state
   const { id } = useMessageStore((state) => state);
+  const { setNewChat } = useChatStore((state) => state);
 
   const vSubmit = async () => {
     try {
-      await axios1.post(`/posts/${id}/comments`, { data: sMessage });
+      await axios1.post(`/posts/${id}/comments`, {
+        data: sMessage,
+      });
+
+      const nRandom = Math.floor(Math.random() * (502 - 1000 + 1)) + 1000;
+      setNewChat({ id: nRandom, sMessage, sTime: dayjs().format("HH:mm") });
       setSMessage("");
     } catch {}
   };

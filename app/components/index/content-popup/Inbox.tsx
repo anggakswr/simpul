@@ -33,8 +33,6 @@ const Inbox = () => {
         </div>
       </div>
 
-      {/* loading was here */}
-
       {/* messages */}
       <div className="pt-20 pb-6 px-8">
         {!aMessages.length ? <p>No data</p> : null}
