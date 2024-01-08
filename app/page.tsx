@@ -11,6 +11,10 @@ import ContentPopup from "./components/index/ContentPopup";
 const Page = () => {
   const { sPopup, setSPopup } = usePopupStore((state) => state);
 
+  const sDefaultBtnCSS = !["Task", "Inbox"].includes(sPopup)
+    ? "bg-blue1"
+    : "bg-white";
+
   return (
     <div className="fixed bottom-[27px] right-[34px] flex">
       {/* popup / white btn content */}
@@ -23,7 +27,7 @@ const Page = () => {
         }`}
       >
         {/* if inbox btn is clicked */}
-        {["All", "Inbox"].includes(sPopup) ? (
+        {["All", "Task"].includes(sPopup) ? (
           <WhiteBtn
             sText="Inbox"
             rnIcon={<Image src={imgBlueMessage} alt="Blue Message" />}
@@ -31,7 +35,7 @@ const Page = () => {
         ) : null}
 
         {/* if task btn is clicked */}
-        {["All", "Task"].includes(sPopup) ? (
+        {["All", "Inbox"].includes(sPopup) ? (
           <WhiteBtn
             sText="Task"
             rnIcon={<Image src={imgOrangeBook} alt="Orange Book" />}
@@ -41,7 +45,7 @@ const Page = () => {
 
       {/* default blue btn */}
       <button
-        className="w-[68px] h-[68px] rounded-full bg-blue1 box-center relative z-10"
+        className={`w-[68px] h-[68px] rounded-full box-center relative z-10 ${sDefaultBtnCSS}`}
         onClick={() => {
           if (sPopup === "All") {
             setSPopup("");
@@ -50,14 +54,21 @@ const Page = () => {
           }
         }}
       >
-        <Image src={imgWhiteLightning} alt="White Lightning" />
+        {sPopup === "Inbox" ? (
+          <Image src={imgBlueMessage} alt="Blue Message" />
+        ) : sPopup === "Task" ? (
+          <Image src={imgOrangeBook} alt="Orange Book" />
+        ) : (
+          <Image src={imgWhiteLightning} alt="White Lightning" />
+        )}
       </button>
 
       {/* gray bg */}
       <div
-        className={`absolute w-[68px] h-[68px] rounded-full bg-gray3 ${
+        className={`cursor-pointer absolute w-[68px] h-[68px] rounded-full bg-gray3 ${
           ["Inbox", "Task"].includes(sPopup) ? "!right-[15px]" : "right-0"
         }`}
+        onClick={() => setSPopup("")}
       />
     </div>
   );

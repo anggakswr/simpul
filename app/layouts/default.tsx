@@ -2,9 +2,6 @@
 
 import { ReactNode } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
-import axios from "axios";
-
-axios.defaults.baseURL = "https://jsonplaceholder.typicode.com";
 
 const queryClient = new QueryClient();
 

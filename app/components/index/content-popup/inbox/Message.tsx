@@ -16,7 +16,7 @@ const Message = ({ oMessage }: { oMessage: IMessage }) => {
 
   return (
     <div
-      className="cursor-pointer border-b-2 border-gray1 last:border-b-0 pt-5 pb-8 flex justify-between"
+      className="cursor-pointer border-b-2 border-gray1 last:border-b-0 py-[22px] flex justify-between"
       onClick={() => setId(oMessage.id)}
     >
       <div className="flex pr-12">

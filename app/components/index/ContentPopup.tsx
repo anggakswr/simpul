@@ -1,6 +1,7 @@
 import usePopupStore from "@/app/store/popup";
 import Inbox from "./content-popup/Inbox";
 import InboxDetail from "./content-popup/InboxDetail";
+import GlobalLoading from "./content-popup/GlobalLoading";
 
 const ContentPopup = () => {
   // global state
@@ -16,6 +17,8 @@ const ContentPopup = () => {
   // inbox
   return (
     <div className={`${sDefaultCSS} ${sPosition}`}>
+      <GlobalLoading />
+
       {sPopup === "Inbox" ? (
         <>
           <Inbox />

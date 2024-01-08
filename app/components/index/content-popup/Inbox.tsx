@@ -6,7 +6,7 @@ import imgSearch from "@/public/img/search.svg";
 
 const Inbox = () => {
   // fetcher
-  const { data, isLoading, isFetching } = getMessages();
+  const { data } = getMessages();
   const aMessages = data?.data ?? [];
 
   // global state
@@ -18,7 +18,7 @@ const Inbox = () => {
       className={`absolute inset-0 overflow-y-scroll bg-white ${sTransition}`}
     >
       {/* search input */}
-      <div className="fixed z-10 right-[34px] w-2/5 bg-white rounded py-5 px-[29px]">
+      <div className="fixed z-10 right-[34px] w-2/5 bg-white rounded py-6 px-8">
         <div className="relative">
           <input
             type="text"
@@ -33,21 +33,10 @@ const Inbox = () => {
         </div>
       </div>
 
-      {/* loading */}
-      {isLoading || isFetching ? (
-        <div className="absolute inset-x-0 box-center h-full">
-          <div className="box-center flex-col gap-4">
-            {/* circle */}
-            <div className="animate-spin w-20 h-20 border-[10px] border-[#F8F8F8] border-t-[#C4C4C4] border-l-[#C4C4C4] rounded-full"></div>
-
-            {/* text */}
-            <p className="text-sm text-gray3">Loading Chats ...</p>
-          </div>
-        </div>
-      ) : null}
+      {/* loading was here */}
 
       {/* messages */}
-      <div className="pt-[52px] pb-5 px-[29px]">
+      <div className="pt-20 pb-6 px-8">
         {!aMessages.length ? <p>No data</p> : null}
 
         {aMessages.map((oMessage: IMessage) => (
