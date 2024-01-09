@@ -1,6 +1,24 @@
+import { useEffect } from "react";
 import TaskItem from "./task/TaskItem";
+import usePopupStore from "@/app/store/popup";
+import axios1 from "@/app/helpers/axios1";
 
 const Task = () => {
+  const { sPopup } = usePopupStore((state) => state);
+
+  const vGetTasks = async () => {
+    try {
+      const res = await axios1.get("/todos");
+      console.log("res.data", res.data);
+    } catch {}
+  };
+
+  useEffect(() => {
+    if (sPopup === "Task") {
+      vGetTasks();
+    }
+  }, [sPopup]);
+
   return (
     <div className="px-8 py-6">
       {/* header */}
