@@ -1,7 +1,9 @@
+import TaskCheckbox from "./task-item/TaskCheckbox";
+
 const TaskItem = () => {
   return (
     <div>
-      {/* <TaskCheckbox /> */}
+      <TaskCheckbox />
       {/* <DatePicker /> */}
       {/* <TextEdit /> */}
     </div>

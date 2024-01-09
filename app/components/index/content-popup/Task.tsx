@@ -7,16 +7,20 @@ const Task = () => {
       <div className="fixed z-10 right-[34px] px-8 w-2/5 box-between">
         {/* select */}
         <div className="pl-[10%]">
-          <select className="bg-white py-2.5 px-3.5 border border-gray1 text-gray3 text-xs rounded font-semibold">
+          <select className="h-10 bg-white py-2.5 px-3.5 border border-gray1 text-gray3 text-xs rounded font-semibold">
             <option value="My Tasks">My Tasks</option>
           </select>
         </div>
 
         {/* btn */}
-        <button className="btn1">New Task</button>
+        <button className="h-10 btn1">New Task</button>
       </div>
 
-      <TaskItem />
+      <div className="pt-16">
+        <TaskItem />
+        <TaskItem />
+        <TaskItem />
+      </div>
     </div>
   );
 };

@@ -22,7 +22,7 @@ const CustomHeader = () => {
       </div>
 
       {/* close */}
-      <button>
+      <button onClick={() => setId(0)}>
         <Image src={imgClose} alt="Close" />
       </button>
     </div>
