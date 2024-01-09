@@ -55,9 +55,7 @@ const ChatInput = () => {
           />
         </div>
 
-        <button className="font-bold text-white text-xs bg-blue1 rounded py-2 px-4">
-          Send
-        </button>
+        <button className="btn1">Send</button>
       </form>
     </>
   );

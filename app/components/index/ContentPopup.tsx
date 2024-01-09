@@ -2,6 +2,7 @@ import usePopupStore from "@/app/store/popup";
 import Inbox from "./content-popup/Inbox";
 import InboxDetail from "./content-popup/InboxDetail";
 import GlobalLoading from "./content-popup/GlobalLoading";
+import Task from "./content-popup/Task";
 
 const ContentPopup = () => {
   // global state
@@ -23,6 +24,13 @@ const ContentPopup = () => {
         <>
           <Inbox />
           <InboxDetail />
+        </>
+      ) : null}
+
+      {sPopup === "Task" ? (
+        <>
+          <Task />
+          {/* <TaskDetail /> */}
         </>
       ) : null}
     </div>

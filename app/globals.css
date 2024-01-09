@@ -26,3 +26,7 @@ input {
 .box-between {
   @apply flex items-center justify-between;
 }
+
+.btn1 {
+  @apply font-bold text-white text-xs bg-blue1 rounded py-2 px-4;
+}
