@@ -1,16 +1,20 @@
 import imgMore from "@/public/img/inbox-detail/more.svg";
 import imgArrow from "@/public/img/task/up-arrow.svg";
 import Image from "next/image";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 
-const TaskCheckbox = () => {
-  const [bOpened, setBOpened] = useState(true);
+interface ITaskCheckbox {
+  bOpened: boolean;
+  setBOpened: Dispatch<SetStateAction<boolean>>;
+}
+
+const TaskCheckbox = ({ bOpened, setBOpened }: ITaskCheckbox) => {
   const [bChecked, setBChecked] = useState(false);
 
   const bLineThrough = bChecked ? "line-through" : "";
 
   return (
-    <div className="box-between">
+    <div className="box-between mb-[17px]">
       <div className="box-equal gap-x-[22px]">
         <input
           type="checkbox"
