@@ -1,5 +1,4 @@
-import Image from "next/image";
-import imgDots from "@/public/img/inbox-detail/more.svg";
+import MoreOptions from "./chat-box/MoreOptions";
 
 export interface IChat {
   id: number;
@@ -34,9 +33,7 @@ const ChatBox = ({ sType, oChat }: IChatBoxProps) => {
 
         <div className={`flex ${sReverse} items-start gap-x-[5px]`}>
           {/* dots */}
-          <button className="w-4 min-w-4">
-            <Image src={imgDots} alt="Options" />
-          </button>
+          <MoreOptions />
 
           {/* texts */}
           <div className={`${sBg} text-xs text-gray3 rounded-[5px] p-2.5`}>
