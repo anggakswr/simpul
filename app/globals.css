@@ -11,7 +11,10 @@ body {
   background-color: black;
 }
 
-input {
+input,
+button,
+a,
+textarea {
   @apply focus:outline-none;
 }
 
