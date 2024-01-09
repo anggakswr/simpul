@@ -4,6 +4,7 @@
 
 * {
   @apply duration-300;
+  scroll-behavior: smooth;
 }
 
 body {
