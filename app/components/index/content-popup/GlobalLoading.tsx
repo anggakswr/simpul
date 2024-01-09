@@ -1,9 +1,11 @@
 import useLoadingStore from "@/app/store/loading";
+import useMessageStore from "@/app/store/message";
 
 const GlobalLoading = () => {
   const { bLoading } = useLoadingStore((state) => state);
+  const { id } = useMessageStore((state) => state);
 
-  if (!bLoading) {
+  if (!bLoading || id) {
     return null;
   }
 

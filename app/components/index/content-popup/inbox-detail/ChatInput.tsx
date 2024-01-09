@@ -5,6 +5,7 @@ import dayjs from "dayjs";
 import { useRef, useState } from "react";
 import NewMessageTag from "./chat-input/NewMessageTag";
 import useOnScreen from "@/app/hooks/useOnScreen";
+import LoadingIndicator from "./chat-input/LoadingIndicator";
 
 const ChatInput = () => {
   // local state
@@ -42,6 +43,8 @@ const ChatInput = () => {
         }}
         className="fixed z-10 right-[34px] bottom-[110px] w-2/5 p-5 bg-white rounded flex gap-x-[13px]"
       >
+        <LoadingIndicator />
+
         <div className="relative w-full">
           {/* blue new message tag */}
           {!bVisible ? <NewMessageTag /> : null}

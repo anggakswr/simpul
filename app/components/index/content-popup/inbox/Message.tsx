@@ -12,12 +12,15 @@ export interface IMessage {
 }
 
 const Message = ({ oMessage }: { oMessage: IMessage }) => {
-  const { setId } = useMessageStore((state) => state);
+  const { setId, setSName } = useMessageStore((state) => state);
 
   return (
     <div
       className="cursor-pointer border-b-2 border-gray1 last:border-b-0 py-[22px] flex justify-between"
-      onClick={() => setId(oMessage.id)}
+      onClick={() => {
+        setId(oMessage.id);
+        setSName(oMessage.name);
+      }}
     >
       <div className="flex pr-12">
         {/* gray circle */}

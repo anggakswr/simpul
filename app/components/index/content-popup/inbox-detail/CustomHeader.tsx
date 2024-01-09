@@ -4,7 +4,7 @@ import imgArrow from "@/public/img/inbox-detail/left-arrow.svg";
 import Image from "next/image";
 
 const CustomHeader = () => {
-  const { setId } = useMessageStore((state) => state);
+  const { setId, sName } = useMessageStore((state) => state);
 
   return (
     <div className="fixed z-10 right-[34px] w-2/5 bg-white rounded p-5 box-between border-b border-[#BDBDBD]">
@@ -16,7 +16,7 @@ const CustomHeader = () => {
 
         {/* texts */}
         <div>
-          <p className="text-blue1 font-bold">asd</p>
+          <p className="text-blue1 font-bold">{sName}</p>
           <p className="text-gray2 text-xs">2 Participants</p>
         </div>
       </div>
