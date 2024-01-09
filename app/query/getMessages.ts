@@ -2,7 +2,7 @@ import { useQuery } from "react-query";
 import usePopupStore from "../store/popup";
 import axios1 from "../helpers/axios1";
 
-const getMessages = () => {
+const useMessages = () => {
   const { sPopup } = usePopupStore((state) => state);
   const enabled = sPopup === "Inbox";
   const fetcher = () => axios1.get("/users");
@@ -11,4 +11,4 @@ const getMessages = () => {
   return query;
 };
 
-export default getMessages;
+export default useMessages;

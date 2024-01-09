@@ -9,7 +9,7 @@ const useOnScreen = (ref: RefObject<HTMLElement>) => {
       new IntersectionObserver(([entry]) =>
         setIntersecting(entry.isIntersecting)
       ),
-    [ref]
+    []
   );
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const useOnScreen = (ref: RefObject<HTMLElement>) => {
     return () => {
       if (el) observer.disconnect();
     };
-  }, []);
+  }, [ref, observer]);
 
   return isIntersecting;
 };

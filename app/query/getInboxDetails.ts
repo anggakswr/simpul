@@ -2,7 +2,7 @@ import { useQuery } from "react-query";
 import useMessageStore from "../store/message";
 import axios1 from "../helpers/axios1";
 
-const getInboxDetails = () => {
+const useInboxDetails = () => {
   const { id } = useMessageStore((state) => state);
   const enabled = id > 0;
   const fetcher = () => axios1.get(`/posts/${id}/comments`);
@@ -11,4 +11,4 @@ const getInboxDetails = () => {
   return query;
 };
 
-export default getInboxDetails;
+export default useInboxDetails;

@@ -19,7 +19,7 @@ const InboxDetail = () => {
 
   useEffect(() => {
     setChats([]);
-  }, [id]);
+  }, [id, setChats]);
 
   if (!id) {
     return null;
